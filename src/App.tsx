@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ToastProvider } from './components/Toast';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -9,7 +9,7 @@ import Contact from './pages/Contact';
 function App() {
   return (
     <ToastProvider>
-      <Router>
+      <Router basename="/Web-accessibility-lab-12">
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         <Navbar />
         <main style={{ flex: 1 }}>
