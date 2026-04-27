@@ -1,73 +1,33 @@
-# React + TypeScript + Vite
+# NovaStack - Web Accessibility Lab 12
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A premium React Single Page Application (SPA) built with a focus on modern aesthetics and strict Web Accessibility (A11y) standards.
 
-Currently, two official plugins are available:
+## 🚀 Accessibility Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### 1. Accessible Routing
+- **Title Management**: The `document.title` is updated automatically on every route change to provide context to screen reader users.
+- **Focus Management**: Upon navigation, focus is automatically shifted to the main `<h1>` heading of the new page. This ensures that screen readers begin reading from the top of the new content.
 
-## React Compiler
+### 2. Dynamic Notifications (Aria-Live)
+- **Toast System**: A global notification system using `aria-live="polite"`. This allows real-time updates (like "Product added to cart") to be announced without interrupting the user's current task.
+- **Accessible Loaders**: Loading states use `role="status"` and `aria-live="polite"` to inform users when content is being fetched.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 3. Accessible Components
+- **Semantic HTML**: Proper use of `<nav>`, `<main>`, `<footer>`, and heading hierarchy (`<h1>`).
+- **Form Accessibility**: Full WCAG compliance for forms, including properly associated labels, `aria-required`, and `autocomplete` attributes.
+- **Keyboard Navigation**: High-visibility focus rings (`:focus-visible`) for all interactive elements.
 
-## Expanding the ESLint configuration
+## 🛠 CI/CD Accessibility Auditing
+- **Pa11y CI**: Automated accessibility testing is configured via `.pa11yci`.
+- **GitHub Actions**: A workflow is set up to run accessibility audits on every Pull Request to ensure no regressions are introduced.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 💻 Tech Stack
+- **React 19**
+- **TypeScript**
+- **Vite**
+- **React Router 7**
+- **Framer Motion** (Animations)
+- **Lucide React** (Icons)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+*Created for Web Accessibility Lab 12.*
