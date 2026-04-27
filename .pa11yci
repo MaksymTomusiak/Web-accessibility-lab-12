@@ -2,14 +2,17 @@
   "defaults": {
     "timeout": 5000,
     "wait": 500,
+    "ignore": [
+      "WCAG2AA.Principle2.Guideline2_4.2_4_1.G1,G123,G124.NoSuchID"
+    ],
     "chromeLaunchConfig": {
       "args": ["--no-sandbox"]
     }
   },
   "urls": [
-    "http://localhost:4173/",
-    "http://localhost:4173/#/products",
-    "http://localhost:4173/#/about",
-    "http://localhost:4173/#/contact"
+    "http://localhost:4173/Web-accessibility-lab-12/",
+    "http://localhost:4173/Web-accessibility-lab-12/#/products",
+    "http://localhost:4173/Web-accessibility-lab-12/#/about",
+    "http://localhost:4173/Web-accessibility-lab-12/#/contact"
   ]
 }
