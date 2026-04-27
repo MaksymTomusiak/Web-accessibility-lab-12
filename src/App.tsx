@@ -9,7 +9,7 @@ import Contact from './pages/Contact';
 function App() {
   return (
     <ToastProvider>
-      <Router>
+      <Router basename="/Web-accessibility-lab-12">
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         <Navbar />
         <main style={{ flex: 1 }}>
