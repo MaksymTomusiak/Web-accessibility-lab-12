@@ -1,0 +1,46 @@
+name: Accessibility Check
+
+on:
+  pull_request:
+    branches: [ main, master ]
+  push:
+    branches: [ main, master ]
+
+jobs:
+  a11y-audit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: 'lab12/lab12/package-lock.json'
+
+      - name: Install Dependencies
+        run: npm install
+        working-directory: lab12/lab12
+
+      - name: Build Application
+        run: npm run build
+        working-directory: lab12/lab12
+
+      - name: Install Pa11y CI
+        run: npm install -g pa11y-ci
+
+      - name: Run Accessibility Audit
+        run: |
+          # Start a static server for the build folder or run dev server in background
+          # For Vite, we can use 'npm run preview'
+          npm run preview &
+          # Wait for the server to be ready
+          npx wait-on http://localhost:4173
+          # Run pa11y-ci against the preview server
+          pa11y-ci --config .pa11yci --sitemap http://localhost:4173
+        working-directory: lab12/lab12
+        env:
+          NODE_ENV: production
